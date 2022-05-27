@@ -1,0 +1,7 @@
+name: PandaAPI
+version: 1.0
+description: API
+author: Clospelanet2
+main: com.closeplanet2.pandaapi.PandaAPI
+softdepend:
+  - JDA

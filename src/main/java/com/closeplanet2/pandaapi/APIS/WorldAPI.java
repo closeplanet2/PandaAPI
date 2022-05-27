@@ -12,6 +12,10 @@ public class WorldAPI   {
         return Bukkit.getWorld(worldName) != null;
     }
 
+    public static void CreateWorld(){
+
+    }
+
     public static void UnloadWorld(String worldName){
         var world = Bukkit.getWorld(worldName);
         UnloadWorld(world);
