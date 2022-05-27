@@ -3,6 +3,7 @@ package com.closeplanet2.pandaapi;
 import com.closeplanet2.pandaapi.Modules.DiscordAPI;
 import com.closeplanet2.pandaapi.Objects.DiscordBot;
 import com.closeplanet2.pandaapi.Objects.MessageChannel;
+import com.closeplanet2.pandaapi.Objects.PlayerPunishments;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,7 +24,8 @@ public class PandaAPI extends JavaPlugin {
     public List<UUID> banGetMessages = new ArrayList<>();
     public boolean canSendConsoleMessages;
 
-    public void onEnable(){
+    @Override
+    public void onEnable() {
         pandaAPI = this;
         canSendConsoleMessages = true;
         DiscordAPI.CreateBot("Dreamfire", "OTc0Mzk0NzUyOTM2MDcxMjc5.Gu4HVJ.KgQlIIbf3CX1JyYFe9Ph1IEA2RHJEkVlbZ94z0");

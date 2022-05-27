@@ -4,7 +4,7 @@ import com.closeplanet2.pandaapi.Modules.ChatAPI;
 import com.closeplanet2.pandaapi.PandaAPI;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class AsyncPlayerChat {
+public class AsyncPlayerChatHandler {
     public static void HandleAsyncPlayerChatEvent(AsyncPlayerChatEvent event, boolean cancelEvent, boolean opOverride){
         event.setCancelled(cancelEvent);
         var player = event.getPlayer();
