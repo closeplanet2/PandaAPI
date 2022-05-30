@@ -2,10 +2,7 @@ package com.closeplanet2.pandaapi;
 
 import com.closeplanet2.pandaapi.Modules.DiscordAPI;
 import com.closeplanet2.pandaapi.Modules.EagleVisionAPI;
-import com.closeplanet2.pandaapi.Objects.CameraPath;
-import com.closeplanet2.pandaapi.Objects.DiscordBot;
-import com.closeplanet2.pandaapi.Objects.MessageChannel;
-import com.closeplanet2.pandaapi.Objects.PlayerPunishments;
+import com.closeplanet2.pandaapi.Objects.*;
 import com.iwebpp.crypto.TweetNaclFast;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -30,6 +27,7 @@ public class PandaAPI extends JavaPlugin {
     public HashMap<String, Location> teleportPoints = new HashMap<>();
     public HashMap<String, CameraPath> cameraPaths = new HashMap<>();
     public HashMap<String, String> chatFormats = new HashMap<>();
+    public HashMap<UUID, PlayerDataStorageObject> playerDataStorage = new HashMap<>();
     public List<UUID> banSendMessages = new ArrayList<>();
     public List<UUID> banGetMessages = new ArrayList<>();
     public boolean canSendConsoleMessages;
