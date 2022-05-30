@@ -29,6 +29,7 @@ public class PandaAPI extends JavaPlugin {
     public HashMap<UUID, List<Player>> hideMatrix = new HashMap<>();
     public HashMap<String, Location> teleportPoints = new HashMap<>();
     public HashMap<String, CameraPath> cameraPaths = new HashMap<>();
+    public HashMap<String, String> chatFormats = new HashMap<>();
     public List<UUID> banSendMessages = new ArrayList<>();
     public List<UUID> banGetMessages = new ArrayList<>();
     public boolean canSendConsoleMessages;
