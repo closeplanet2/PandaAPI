@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="CPCameraStudioReborn">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../PP/CPCameraStudioReborn.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

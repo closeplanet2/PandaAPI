@@ -1,9 +1,12 @@
 package com.closeplanet2.pandaapi;
 
 import com.closeplanet2.pandaapi.Modules.DiscordAPI;
+import com.closeplanet2.pandaapi.Modules.EagleVisionAPI;
+import com.closeplanet2.pandaapi.Objects.CameraPath;
 import com.closeplanet2.pandaapi.Objects.DiscordBot;
 import com.closeplanet2.pandaapi.Objects.MessageChannel;
 import com.closeplanet2.pandaapi.Objects.PlayerPunishments;
+import com.iwebpp.crypto.TweetNaclFast;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -25,6 +28,7 @@ public class PandaAPI extends JavaPlugin {
     public HashMap<UUID, Location> frozenPlayers = new HashMap<>();
     public HashMap<UUID, List<Player>> hideMatrix = new HashMap<>();
     public HashMap<String, Location> teleportPoints = new HashMap<>();
+    public HashMap<String, CameraPath> cameraPaths = new HashMap<>();
     public List<UUID> banSendMessages = new ArrayList<>();
     public List<UUID> banGetMessages = new ArrayList<>();
     public boolean canSendConsoleMessages;
@@ -33,8 +37,9 @@ public class PandaAPI extends JavaPlugin {
     public void onEnable() {
         pandaAPI = this;
         canSendConsoleMessages = true;
-        DiscordAPI.CreateBot("Dreamfire", "OTc0Mzk0NzUyOTM2MDcxMjc5.Gu4HVJ.KgQlIIbf3CX1JyYFe9Ph1IEA2RHJEkVlbZ94z0");
         FrozenPlayerLoop();
+        CameraPathLoop();
+        cameraPaths = EagleVisionAPI.UpdateCameraPaths();
     }
 
     public void SendConsoleMessage(String message){
@@ -54,6 +59,19 @@ public class PandaAPI extends JavaPlugin {
                 }
             }
         }, 0L, 20L);
+    }
+
+    private int CameraPathLoop(){
+        return Bukkit.getServer().getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
+            public void run() {
+                if(!cameraPaths.isEmpty()){
+                    for(var pathName : cameraPaths.keySet()){
+                        var path = cameraPaths.get(pathName);
+                        path.CheckAllPlayerStates();
+                    }
+                }
+            }
+        }, 0, 10);
     }
 
 }
