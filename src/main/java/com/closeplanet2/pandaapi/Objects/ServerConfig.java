@@ -38,4 +38,8 @@ public class ServerConfig {
             e.printStackTrace();
         }
     }
+
+    public boolean DeleteConfig(){
+        return file.delete();
+    }
 }
