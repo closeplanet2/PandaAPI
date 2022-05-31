@@ -9,6 +9,11 @@ import java.io.File;
 
 public class ConfigAPI {
 
+    public interface SaveableConfig {
+        public void SaveData(ServerConfig serverConfig, String path);
+        public void LoadData(ServerConfig serverConfig, String path);
+    }
+
     private static String ReturnDataPath(String dataType){
         return "PandaAPI/" + dataType;
     }
@@ -22,7 +27,7 @@ public class ConfigAPI {
     }
 
     public static File[] ReturnDirectoryFiles(DataType fileType){
-        var dirPath = "PandaML/" + fileType.toString() + "/";
+        var dirPath = "PandaAPI/" + fileType.toString() + "/";
         var file = new File(dirPath);
         if(!file.exists())
         {

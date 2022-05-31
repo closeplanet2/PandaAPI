@@ -29,9 +29,15 @@ public class CommandAPI {
     public static void PlayerRequirements(CommandSender sender, String[] args, boolean op, String perm, String pass, PlayerCommand playerCommand){
         if(!(sender instanceof Player)) playerCommand.playerError(ChatColor.RED + "The sender is not a instance of player!", args);
         else if(op && !sender.isOp()) playerCommand.playerError(ChatColor.RED + "The sender is not OP!", args);
-        else if(!perm.equals("") && !sender.hasPermission(perm)) playerCommand.playerError(ChatColor.RED + "The player doesnt have the correct permssions!", args);
-        else if(!Arrays.stream(args).toList().contains(pass)) playerCommand.playerError(ChatColor.RED + "The args doesnt contain the specified password!", args);
-        else playerCommand.playerSuccess((Player) sender, args);
+        else if(!perm.equals("")){
+            if(!sender.hasPermission(perm)) playerCommand.playerError(ChatColor.RED + "The player doesnt have the correct permssions!", args);
+        }
+        else if(!pass.equals("")){
+            if(!Arrays.stream(args).toList().contains(pass)){
+                playerCommand.playerError(ChatColor.RED + "The args doesnt contain the specified password!", args);
+            }
+        }
+        else playerCommand.playerSuccess(sender, args);
     }
 
 }

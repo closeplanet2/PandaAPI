@@ -29,4 +29,10 @@ public class DiscordAPI {
         mainClass.discordBots.remove(botName);
         PandaAPI.pandaAPI.SendConsoleMessage(PandaAPI.pandaPrefix + ChatColor.RED + "Connection has been closed: " + ChatColor.BOLD + botName);
     }
+
+    public static DiscordBot ReturnBot(String botName){
+        var mainClass = PandaAPI.pandaAPI;
+        if(!DoesDiscordBotExist(botName)) return null;
+        return mainClass.discordBots.get(botName);
+    }
 }

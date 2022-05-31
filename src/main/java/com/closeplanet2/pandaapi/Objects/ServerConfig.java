@@ -16,10 +16,7 @@ public class ServerConfig {
         file = new File(dirPath, fileName);
         firstLoad = !FileAPI.DoesFileExist(dirPath, fileName);
         fileConfiguration = YamlConfiguration.loadConfiguration(file);
-    }
-
-    public File file(){
-        return file;
+        SaveConfig();
     }
 
     public FileConfiguration fileConfiguration(){
@@ -28,6 +25,10 @@ public class ServerConfig {
 
     public boolean firstLoad(){
         return firstLoad;
+    }
+
+    public File file(){
+        return file;
     }
 
     public void SaveConfig(){

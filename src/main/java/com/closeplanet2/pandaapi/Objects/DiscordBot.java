@@ -30,4 +30,9 @@ public class DiscordBot {
     public void CloseConnection(){
         jda.shutdownNow();
     }
+
+    public JDA ReturnBot(){
+        return jda;
+    }
+
 }

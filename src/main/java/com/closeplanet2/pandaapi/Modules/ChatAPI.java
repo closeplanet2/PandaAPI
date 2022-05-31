@@ -121,4 +121,31 @@ public class ChatAPI {
         player.sendMessage(message);
     }
 
+    public static boolean ClearPlayerChat(Player player){
+        for(var i = 0; i < 200; i++){
+            player.sendMessage("");
+        }
+        return true;
+    }
+
+    public static boolean HandleChatEvent(Player player, String message, boolean opOverride){
+        if(!ChatAPI.CanPlayerSendMessage(player) && !opOverride) return false;
+        if(ChatAPI.ReturnMessageChannel(player) == null) return false;
+        var playerChannel = ChatAPI.ReturnMessageChannel(player);
+        if(playerChannel == null) return false;
+
+        for(var channelName : PandaAPI.pandaAPI.messageChannels.keySet()){
+            var messageChannel = PandaAPI.pandaAPI.messageChannels.get(channelName);
+            if(messageChannel == playerChannel){
+                messageChannel.SendMessageToChannel(message, opOverride);
+            }else{
+                if(playerChannel.IsDefaultChannel() && messageChannel.CanGetDefaultMessages()){
+                    messageChannel.SendMessageToChannel(message, opOverride);
+                }
+            }
+        }
+
+        return true;
+    }
+
 }
