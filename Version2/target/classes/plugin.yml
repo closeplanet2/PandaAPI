@@ -1,0 +1,18 @@
+name: PandaAPI
+version: 2.0
+description: API
+author: Clospelanet2
+main: com.closeplanet2.pandaapi.PandaAPI
+commands:
+  addlocation:
+    description: Add location to path!
+  createpath:
+    description: Create camera path!
+  deletepath:
+    description: Delete camera path!
+  removelocation:
+    description: Remove location from path!
+  setpathtime:
+    description: Set completition time for path!
+  triggerpath:
+    description: Trigger camera path!
